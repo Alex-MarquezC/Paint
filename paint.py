@@ -10,8 +10,9 @@ Exercises
 """
 
 from turtle import *
+import turtle
 from freegames import vector
-from math import sqrt
+from math import hypot
 
 def line(start, end):
     """Draw line from start to end."""
@@ -35,12 +36,12 @@ def square(start, end):
     end_fill()
 
 def circle(start, end):
-    radius = math.hypot(end.x - start.x, end.y - start.y)
+    radius = hypot(end.x - start.x, end.y - start.y)
     up()
     goto(start.x, start.y - radius)
     down()
     begin_fill()
-    T.circle(radius)
+    turtle.circle(radius)
     end_fill()
 
 def rectangle(start, end):
