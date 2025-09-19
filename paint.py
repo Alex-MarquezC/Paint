@@ -10,9 +10,7 @@ Exercises
 """
 
 from turtle import *
-
 from freegames import vector
-
 from math import sqrt
 
 def line(start, end):
@@ -37,28 +35,35 @@ def square(start, end):
     end_fill()
 
 def circle(start, end):
-    """Draw circle from start to end."""
+    radius = math.hypot(end.x - start.x, end.y - start.y)
     up()
-    goto(start.x, start.y - sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2))
+    goto(start.x, start.y - radius)
     down()
     begin_fill()
-    radius = sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
-    turtle.circle(radius)
+    T.circle(radius)
     end_fill()
 
-def circle(start, end):
-    """Draw circle from start to end."""
-    pass  # TODO
-
-
 def rectangle(start, end):
-    """Draw rectangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    goto(end.x, start.y)   
+    goto(end.x, end.y)     
+    goto(start.x, end.y)  
+    goto(start.x, start.y) 
+    end_fill()
 
 
 def triangle(start, end):
-    """Draw triangle from start to end."""
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+    goto(end.x, start.y)  
+    goto(end.x, end.y)    
+    goto(start.x, start.y) 
+    end_fill()
 
 
 def tap(x, y):
