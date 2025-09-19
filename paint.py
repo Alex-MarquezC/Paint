@@ -13,6 +13,7 @@ from turtle import *
 
 from freegames import vector
 
+from math import sqrt
 
 def line(start, end):
     """Draw line from start to end."""
@@ -35,6 +36,15 @@ def square(start, end):
 
     end_fill()
 
+def circle(start, end):
+    """Draw circle from start to end."""
+    up()
+    goto(start.x, start.y - sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2))
+    down()
+    begin_fill()
+    radius = sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
+    turtle.circle(radius)
+    end_fill()
 
 def circle(start, end):
     """Draw circle from start to end."""
@@ -79,6 +89,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('yellow'), 'Y')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
